@@ -86,13 +86,21 @@ function returnBadArguments(fn, ...args) {
     throw new Error('fn is not a function');
   }
 
-  for (let i = 1; i < arguments.length; i++) {
+  /* for (let i = 1; i < arguments.length; i++) {
     try {
       if (fn(arguments[i])) {
         throw new Error();
       }
     } catch (e) {
       arr.push(arguments[i]);
+    }
+  } */
+
+  for (const arg of args) {
+    try {
+      fn(arg);
+    } catch {
+      arr.push(arg);
     }
   }
 
