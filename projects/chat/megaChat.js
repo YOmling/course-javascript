@@ -10,7 +10,7 @@ import WSClient from './wsClient';
 export default class MegaChat {
   constructor() {
     this.wsClient = new WSClient(
-      `ws://${location.host}/chat/ws`,
+      `ws://localhost:8282/chat/ws`,
       this.onMessage.bind(this)
     );
 

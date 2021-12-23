@@ -21,7 +21,8 @@
     .left-side {
         flex-grow: 1;
         max-width: 320px;
-        background: linear-gradient(to bottom, #f19b6d, #EB8665);
+        background: #17212B;
+        ;
         color: #FEFEFD;
         padding: 10px;
         box-sizing: border-box;
@@ -34,8 +35,14 @@
     }
 
     .user-name {
+        color: #5387C1;
         font-size: 18px;
         font-weight: bold;
+
+    }
+
+    .user-list-item {
+        color: #5387C1;
     }
 
     .user-photo,
@@ -61,28 +68,43 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        padding: 10px;
+        /* padding: 10px; */
     }
 
     .messages-container {
         flex-grow: 1;
-        overflow: scroll;
+        /* overflow: scroll; */
+        background: #0E1621;
     }
 
     .input-container {
-        margin-top: 10px;
+        /* margin-top: 10px; */
         display: flex;
         align-items: center;
+        background: #17212B;
+        height: 54px;
+
     }
 
     .message-input {
-        height: 30px;
-        flex-grow: 1;
-        margin: 0 10px 0 0;
+        background: transparent;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 300;
+
+    }
+
+    .message-input::placeholder {
+       color:#5B6774 ; 
     }
 
     .send-button {
-        height: 25px;
+        width: 112px;
+	height: 28px;
+	color: #fff;
+	font-size: 14px;
+	background: #5387C1;
+	border-radius: 5px;
     }
 
     #login {
@@ -97,6 +119,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .login-name-input::placeholder {
+        color: #858F98;
     }
 
     .login-field {
@@ -117,13 +143,14 @@
     }
 
     .login-submit {
-        height: 43px;
         width: 132px;
-        background: #5188C1;
-        color: white;
+        height: 43px;
+        background-color: #5188C1;
+        color: #fff;
         text-transform: uppercase;
-        border-radius: 6px;
-       
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 5px;
     }
 
     .message-item {
@@ -140,6 +167,7 @@
     }
 
     .message-item-right {
+        
         flex-grow: 1;
     }
 
@@ -175,6 +203,19 @@
         text-align: center;
     }
 
+    .header {
+        background-color: #17212B;
+        border-left: 1px solid #0E1621;
+        padding: 13px 15px;
+        font-weight: 300;
+        color: white;
+    }
+
+    .header__members {
+        font-size: 12px;
+        color: #7F91A4;
+        margin-top: 4px;
+    }
 </style>
 <div id="app">
     <div id="login" class="hidden">
@@ -199,7 +240,7 @@
 
             <div class="user-list-container">
                 <div class="user-list-header">
-                    Все пользователи:
+                  <!--   Все пользователи: -->
                 </div>
 
                 <div class="user-list" data-role="user-list">
@@ -207,9 +248,15 @@
             </div>
         </div>
         <div class="right-side">
+            <div class="header">
+                <h4 class="header__title">Чат</h4>
+                <span class="header__members" id="count-of-users"></span>
+            </div>
+
             <div class="messages-container" data-role="messages-list"></div>
+
             <div class="input-container" data-role="message-sender">
-                <input class="message-input" data-role="message-input" type="text" placeholder="сообщение" />
+                <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..." />
                 <button class="send-button" data-role="message-send-button">Отправить</button>
             </div>
         </div>
